@@ -3,21 +3,23 @@
 ((global, $) => {
 
     let Greet = function(firstname, lastname, language){
-        return new Greeting.init(firstname, lastname, language);
+        return new Greet.init(firstname, lastname, language);
     }
 
-    Greeting.init = init;
-    
-    class init {
+    Greet.init = function (firstname = '', lastname = '', language = 'en') {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.language = language;
+    }
 
-        constructor(firstname = '', lastname = '', language = 'en'){
-            this.firstname = firstname;
-            this.lastname = lastname;
-            this.language = language;
+    Greet.prototype = {
+        Shitting: () => {
+            console.log('fuck')
         }
-
     }
+
+    Greet.init.prototype = Greet.prototype
 
     global.Greeting = global.G$ = Greet;
 
-})(window, jQuery);
+})(window, window.jQuery);

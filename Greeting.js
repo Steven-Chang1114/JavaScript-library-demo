@@ -1,6 +1,6 @@
 //My library
 
-((global, $) => {
+;((global, $) => {
 
     // 'new' an object
     let Greet = function(firstname, lastname, language){
@@ -12,6 +12,8 @@
         this.firstname = firstname;
         this.lastname = lastname;
         this.language = language;
+
+        this.validate()
     }
 
     // prototype holds methods (to save memory space)
@@ -77,7 +79,7 @@
 
             // inject the message in the chosen place in the DOM
             if(!$){
-                document.querySelector(`#${selector}`).textContent = msg;
+                document.querySelector(selector).textContent = msg;
             }
 
             $(selector).html(msg);

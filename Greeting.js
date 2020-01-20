@@ -14,42 +14,44 @@
 
     Greet.prototype = {
         
-        fullName: () => {
+        fullName: function() {
             return `${this.firstname} ${this.lastname}`;
         },
 
-        validate: () => {
+        validate: function() {
             if (lang.indexOf(this.language) === -1) throw "Invaild language";
         },
 
-        greeting: () => {
-            return `${greeting[this.language]} ${this.firstname}!`;
+        greeting: function() {
+            return `${greetings[this.language]} ${this.firstname}!`;
+        },
+ 
+        formalGreeting: function() {
+            return `${formalGreetings[this.language]} ${this.fullName()}.`;
         },
 
-        formalGreeting: () => {
-            return `${formalGreeting[this.language]}, ${this.fullName()}.`;
-        },
-
-        greet: formal => {
+        greet: function(formal) {
             let msg;
 
-            formal ? msg = formalGreeting() : msg = greeting();
+            formal ? msg = this.formalGreeting() : msg = this.greeting();
 
             console.log(msg);
 
             return this;
         },
 
-        log: () => {
+        log: function() {
             console.log(`${log[this.language]}: ${this.fullName()}`);
 
             return this;
         },
 
-        setLang: newLang => {
+        setLang: function(newLang) {
             this.language = newLang;
 
             this.validate();
+
+            return this;
         }
 
     }
@@ -58,22 +60,22 @@
 
     const lang = ['en', 'cn', 'es']
 
-    const greeting = {
-        en = "Hello",
-        cn = "你好",
-        es = 'Hola'
+    const greetings = {
+        en: "Hello",
+        cn: "你好",
+        es: 'Hola'
     };
 
-    const formalGreeting = {
-        en = "Greeting",
-        cn = "您好",
-        es = 'Saludos'
+    const formalGreetings = {
+        en: "Greeting",
+        cn: "您好",
+        es: 'Saludos'
     };
 
     const log = {
-        en = "Logged in",
-        cn = "已登录",
-        es = 'Inicio sesion'
+        en: "Logged in",
+        cn: "已登录",
+        es: 'Inicio sesion'
     };
 
     //Put the Greet into the global

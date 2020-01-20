@@ -1,4 +1,5 @@
 //The file for me to use my library
-let greet = G$('Steven', 'Chang');
+let g = G$('Steven', 'Chang');
+g.greet()
 
-console.log(greet);
+//console.log(g);

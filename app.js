@@ -1,5 +1,5 @@
 //The file for me to use my library
 let g = G$('Steven', 'Chang');
-g.greet()
+var a = g.greet().setLang('es').greet(true).log();
 
-//console.log(g);
+//console.log(a);

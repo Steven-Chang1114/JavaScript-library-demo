@@ -52,6 +52,22 @@
             this.validate();
 
             return this;
+        },
+
+        HTMLGreeting: function(selector, formal){
+            var msg;
+
+            if (!selector) throw "Missing selector";
+
+            formal ? msg = this.formalGreeting() : msg = this.greeting();
+
+            if(!$){
+                document.querySelector(`#${selector}`).textContent = msg;
+            }
+
+            $(selector).html(msg);
+
+            return this;
         }
 
     }
